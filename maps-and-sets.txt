@@ -1,0 +1,55 @@
+What does the following code return?
+new Set([1,1,2,2,3,4])
+
+// Returns
+{1, 2, 3, 4}
+
+
+
+What does the following code return?
+[...new Set("referee")].join("")
+
+// Returns
+"ref"
+
+
+
+What does Map m look like after running the following code?
+let m = new Map();
+m.set([1,2,3], true);
+m.set([1,2,3], false);
+
+// Map m
+0: {Array(3) => true},
+1: {Array(3) => false};
+
+
+
+Has Duplicate
+Write a function called hasDuplicate which accepts an array and returns true or false if that array contains a duplicate
+
+const hasDuplicate = (array) => array.length > [...new Set(array)].length;
+
+
+
+Vowel Count
+rite a function called vowelCount which accepts a string and returns a map where the keys are numbers and the
+values are the count of the vowels in the string.
+
+function isVowel(char) {
+  return 'aeiou'.includes(char)
+}
+
+function vowelCount(str) {
+  let vowelMap = new Map();
+  for (let char of str) {
+    let lowerChar = char.toLowerCase();
+    if (isVowel(lowerChar)) {
+      if (vowelMap.has(lowerChar)) {
+        vowelMap.set(lowerChar, vowelMap.get(lowerChar) + 1);
+      } else {
+        vowelMap.set(lowerChar, 1);
+      }
+    }
+    return vowelMap;
+}
